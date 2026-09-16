@@ -1,0 +1,17 @@
+{
+     "candidate_name": "Arjav Jain",
+     "target_role": "Junior Python Backend Developer",
+     "skills": [
+       "python",
+       "django",
+       "django_rest_framework",
+       "postgresql",
+       "sql",
+       "git",
+       "docker",
+       "pytest",
+       "chromadb",
+       "rag",
+       "linux"
+     ]
+   }

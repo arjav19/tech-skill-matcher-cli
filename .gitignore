@@ -1,1 +1,14 @@
 # Git Ignore 
+# Ignore a specific file
+secrets.txt
+
+# Ignore an entire folder (always add a trailing slash)
+venv/
+__pycache__/
+.pytest_cache/
+
+# Ignore all files ending with a specific extension (using a wildcard)
+ *.pyc,
+ .env.
+
+
