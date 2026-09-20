@@ -1,0 +1,14 @@
+{
+  "job_id": "JOB-90214",
+  "title": "Backend API & AI Integration Engineer",
+  "department": "Platform Engineering",
+  "company": "Cognitive Docs Inc",
+  "location": "Bengaluru, India",
+  "description": "We are seeking a backend engineer to lead the integration of large language models into enterprise document processing pipelines. You will build microservices that parse unstructured documents and provide semantic search capabilities.",
+  "requirements": "The candidate must have strong experience in Python, Django REST Framework, and PostgreSQL. Familiarity with Vector Embeddings, ChromaDB, and Retrieval-Augmented Generation (RAG) is essential. Candidates should know how to containerize applications with Docker, write clean tests using pytest, and deploy to cloud services.",
+  "qualifications": [
+    "Bachelor's degree in Computer Science or equivalent practical experience",
+    "Strong understanding of RESTful API design and JWT authentication",
+    "Experience with Git and CI/CD pipelines"
+  ]
+}

@@ -1,1 +1,29 @@
 
+Job Title: Junior Python Backend Developer
+Company: FinTech Velocity Labs
+Location: Bengaluru, India (Hybrid)
+
+
+About the Role:
+We are looking for a passionate Python Backend Developer to join our core payments infrastructure team. You will be building and maintaining robust RESTful APIs, designing relational database schemas, and ensuring high service availability.
+
+
+Key Responsibilities:
+
+
+- Design, develop, and deploy scalable REST APIs using Python and Django Rest Framework (DRF).
+- Write optimized SQL queries and manage database migrations using PostgreSQL.
+- Containerize services using Docker for automated deployment on cloud environments.
+- Implement background task queues with Redis and Celery.
+- Write comprehensive automated tests using pytest to ensure code reliability.
+- Collaborate with the team using Git and GitHub in a fast-paced agile environment.
+
+
+Requirements & Qualifications:
+
+
+- Strong foundations in Python, Object-Oriented Programming (OOP), and data structures.
+- Hands-on experience with Django or FastAPI.
+- Familiarity with relational databases (PostgreSQL, SQLite).
+- Basic understanding of Linux terminal, Bash scripting, and Git workflows.
+- Experience with Docker and RESTful API authentication (JWT) is a strong plus.
