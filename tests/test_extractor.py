@@ -3,9 +3,9 @@ import pytest
 from src.extractor import SkillExtractor
 
 @pytest.fixture
-def sample_taxanomy(tmp_path):
-    """Creates a temprary taxanomy JSON file for isolated testing"""
-    taxanomy_data = {
+def sample_taxonomy(tmp_path):
+    """Creates a temprary taxonomy JSON file for isolated testing"""
+    taxonomy_data = {
         
 
       "languages": {
@@ -25,7 +25,7 @@ def sample_taxanomy(tmp_path):
     }
     tax_file = tmp_path/"test_taxonomy.json"
     with open(tax_file,"w",encoding="utf-8") as f:
-        json.dump(taxanomy_data,f)
+        json.dump(taxonomy_data,f)
     return tax_file
 
 class TestSkillExtractor:
@@ -65,16 +65,16 @@ class TestSkillExtractor:
         assert "c" not in skills
         assert len(skills)==0
 
-    def test_exact_single_letter_c_matches(self,sample_taxanomy):
-        extractor = SkillExtractor(sample_taxanomy)
+    def test_exact_single_letter_c_matches(self,sample_taxonomy):
+        extractor = SkillExtractor(sample_taxonomy)
         text = "Strong proficiency in C and Python programming."
         skills = extractor.extract_skills(text)
 
         assert "c" in skills
         assert "python" in skills
 
-    def test_empty_text(self,sample_taxanomy):
-        extractor = SkillExtractor(sample_taxanomy)
+    def test_empty_text(self,sample_taxonomy):
+        extractor = SkillExtractor(sample_taxonomy)
         assert extractor.extract_skills("") == set()
         assert(
                 extractor.extract_skills("No technical terms listed here.") == set()

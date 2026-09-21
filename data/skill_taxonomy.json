@@ -1,0 +1,32 @@
+{
+     "languages": {
+       "python": ["python", "python3", "py"],
+       "javascript": ["javascript", "js", "ecmascript"],
+       "sql": ["sql", "structured query language"],
+       "c++": ["c++", "cpp"],
+       "go": ["golang", "go"]
+     },
+     "frameworks": {
+       "django": ["django"],
+       "django_rest_framework": ["django rest framework", "drf", "django-rest-framework"],
+       "fastapi": ["fastapi", "fast-api"],
+       "flask": ["flask"]
+     },
+     "databases": {
+       "postgresql": ["postgresql", "postgres", "psql"],
+       "mongodb": ["mongodb", "mongo"],
+       "redis": ["redis"],
+       "chromadb": ["chromadb", "chroma"]
+     },
+     "devops_and_tools": {
+       "docker": ["docker", "dockerfile", "containerization"],
+       "git": ["git", "github", "gitlab"],
+       "linux": ["linux", "bash", "shell"],
+       "pytest": ["pytest", "unit testing", "py.test"]
+     },
+     "ai_and_search": {
+       "rag": ["rag", "retrieval augmented generation", "retrieval-augmented generation"],
+       "embeddings": ["embeddings", "vector embeddings", "sentence-transformers"],
+       "llm": ["llm", "large language models", "gemini", "openai"]
+     }
+   }

@@ -3,7 +3,7 @@ import httpx
 import pytest
 from src.parser import RemoteJobParser
 
-class TesrRemoteJobParser:
+class TestRemoteJobParser:
     @patch("httpx.Client.get")
     def test_fetch_from_url_success(self, mock_get):
         # Mock successful HTTP 200 response
@@ -28,7 +28,7 @@ class TesrRemoteJobParser:
 
 
         with pytest.raises(ConnectionError) as exc_info:
-        RemoteJobParser.fetch_from_url("https://jobs.example.com/api/invalid")
+            RemoteJobParser.fetch_from_url("https://jobs.example.com/api/invalid")
         assert "Failed to fetch job posting" in str(exc_info.value)
 
 
@@ -39,10 +39,10 @@ class TesrRemoteJobParser:
 
 
         with pytest.raises(ConnectionError):
-        RemoteJobParser.fetch_from_url("https://slow-api.example.com/jobs")
+            RemoteJobParser.fetch_from_url("https://slow-api.example.com/jobs")
 
 
     def test_invalid_url_format(self):
         with pytest.raises(ValueError) as exc_info:
-        RemoteJobParser.fetch_from_url("not_a_valid_url")
-        assert "Invalid URL" in str(exc_info.value)
+            RemoteJobParser.fetch_from_url("not_a_valid_url")
+            assert "Invalid URL" in str(exc_info.value)

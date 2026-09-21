@@ -17,9 +17,9 @@ class TestCLIItegration:
 
         cmd  = [
             sys.executable,
-            str(project_root/"main.py"),
+            str(project_root / "main.py"),
             "--file",
-            str("sample_file"),
+            str(sample_file),
         ]
         result = subprocess.run(cmd, capture_output=True, text=True)
 
@@ -32,7 +32,7 @@ class TestCLIItegration:
     def test_cli_json_flag_output(self, project_root):
         sample_file = project_root / "data" / "sample_jobs" / "backend_django.txt"
         if not sample_file.exists():
-        pytest.skip("Sample file not yet created")
+            pytest.skip("Sample file not yet created")
 
 
         cmd = [

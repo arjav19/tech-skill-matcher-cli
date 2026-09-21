@@ -14,12 +14,12 @@ class ReportGenerator:
 
 
     @classmethod
-    def generate_terminal_report(cls,results:dict,use_color: bool = True)-> str:
+    def generate_terminal_report(cls, results: dict, use_color: bool = True) -> str:
         """Generates a structured, formatted report string for console display."""
-        match_pct = results.get("match_percentage",0.0)
-        matched = results.get("match_skills",[])
-        missing = results.get("missing_skills",[])
-        total = results.get("total_job_skills",0)
+        match_pct = results.get("match_percentage", 0.0)
+        matched = results.get("matched_skills", [])
+        missing = results.get("missing_skills", [])
+        total = results.get("total_job_skills", 0)
 
         color_prefix = cls.GREEN if match_pct >= 70 else (cls.CYAN if match_pct >= 40 else cls.RED)
         c_reset = cls.RESET if use_color else ""
@@ -43,11 +43,10 @@ class ReportGenerator:
         else:
             lines.append("    (None)")
 
-
-            lines.extend([
+        lines.extend([
             "",
-            f"{c_bold}[-] Missing Skills to Acquire ({len(missing)}):{c_reset}"
-            ])
+            f"{c_bold}[-] Missing Skills to Acquire ({len(missing)}):{c_reset}",
+        ])
 
         if missing:
             for skill in missing:
@@ -55,9 +54,16 @@ class ReportGenerator:
         else:
             lines.append("    (None - Candidate meets all required skills!)")
 
-
         lines.append("=" * 56)
         return "\n".join(lines)
+
+    @staticmethod
+    def export_json(results: dict, output_path: str | Path) -> None:
+        """Exports structured gap-analysis results to a JSON file."""
+        path = Path(output_path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(results, f, indent=2)
 
     @staticmethod
     def export_markdown(results: dict, output_path: str | Path) -> None:
@@ -73,22 +79,42 @@ class ReportGenerator:
 
 
         md_lines = [
-            f"# Skill Gap Analysis Report",
+            "# Skill Gap Analysis Report",
             f"**Match Rating:** {match_pct}%  ",
             f"**Total Required Skills Identified:** {total}  ",
             "",
             "## Matched Skills",
-            *(f"- [x] `{s}`" for s in matched) if matched else ("- *No overlapping skills found.*",),
+        ]
+
+
+        if matched:
+            for s in matched:
+                md_lines.append(f"- [x] `{s}`")
+        else:
+            md_lines.append("- *No overlapping skills found.*")
+
+
+        md_lines.extend([
             "",
             "## Missing Skills (Recommended Focus Areas)",
-            *(f"- [ ] `{s}`" for s in missing) if missing else ("- *No missing skills.*",),
+        ])
+
+
+        if missing:
+            for s in missing:
+                md_lines.append(f"- [ ] `{s}`")
+        else:
+            md_lines.append("- *No missing skills.*")
+
+
+        md_lines.extend([
             "",
             "---",
             "*Report generated automatically by tech-skill-matcher-cli.*",
-        ]
-                    
+        ])
 
 
         with open(path, "w", encoding="utf-8") as f:
             f.write("\n".join(md_lines) + "\n")
-    
+
+
